@@ -112,7 +112,7 @@ extension VersionExt on Version {
 }
 
 extension Name on int {
- String genre() {
+  String genre() {
     switch (this) {
       case 1:
         return 'Bass';
@@ -153,7 +153,7 @@ extension Name on int {
     }
   }
 
- String mood() {
+  String mood() {
     switch (this) {
       case 1:
         return 'Angry';

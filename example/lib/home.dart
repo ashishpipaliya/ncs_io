@@ -32,67 +32,115 @@ class _HomePageState extends State<HomePage> {
                                     padding: const EdgeInsets.all(15),
                                     margin: const EdgeInsets.all(15),
                                     color: Colors.white,
-                                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-                                      Center(child: Image.network(song?.imageUrl ?? '')),
-                                      Text(song?.name ?? 'Name Error'),
-                                      Text(song?.url ?? 'URL Error'),
-                                      Text(song?.songUrl ?? 'Song Url Error'),
-                                      Text(song?.genre ?? 'Genre Error'),
-                                      const Text('Artists'),
-                                      Wrap(
-                                        children: List.generate(
-                                            song?.artists?.length ?? 0,
-                                            (index) => InputChip(
-                                                  onPressed: () async {
-                                                    Artist artist = await NCS.getArtistInfo(artist: song?.artists?[index]);
-                                                    showDialog(
-                                                      context: context,
-                                                      builder: (context) => Material(
-                                                        child: Column(mainAxisSize: MainAxisSize.min, children: [
-                                                          Image.network(artist.img ?? ''),
-                                                          Text(artist.name ?? ''),
-                                                          const Divider(thickness: 2),
-                                                          Text(artist.url ?? ''),
-                                                          const Divider(thickness: 2),
-                                                          ...List.generate(artist.genres?.length ?? 0, (index) => ListTile(title: Text(artist.genres?[index] ?? ''))),
-                                                        ]),
-                                                      ),
-                                                    );
-                                                  },
-                                                  label: Text('${song?.artists?[index].name} - ${song?.artists?[index].url}'),
-                                                )),
-                                      ),
-                                      if (song?.tags != null) const Text('Tags'),
-                                      Wrap(
-                                        children: List.generate(
-                                            song?.tags?.length ?? 0,
-                                            (index) => Chip(
-                                                  label: Text('${song?.tags?[index].name}'),
-                                                )),
-                                      ),
-                                      Wrap(
-                                        children: List.generate(
-                                            song?.tags?.length ?? 0,
-                                            (index) => song?.tags?[index].genre != null
-                                                ? Chip(
-                                                    label: Text(song?.tags?[index].genre?.genre() ?? ''),
-                                                  )
-                                                : const SizedBox.shrink()),
-                                      ),
-                                      Wrap(
-                                        children: List.generate(
-                                            song?.tags?.length ?? 0,
-                                            (index) => song?.tags?[index].mood != null
-                                                ? Chip(
-                                                    label: Text(song?.tags?[index].mood?.mood() ?? ''),
-                                                  )
-                                                : const SizedBox.shrink()),
-                                      )
-                                    ]),
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Center(
+                                              child: Image.network(
+                                                  song?.imageUrl ?? '')),
+                                          Text(song?.name ?? 'Name Error'),
+                                          Text(song?.url ?? 'URL Error'),
+                                          Text(song?.songUrl ??
+                                              'Song Url Error'),
+                                          Text(song?.genre ?? 'Genre Error'),
+                                          const Text('Artists'),
+                                          Wrap(
+                                            children: List.generate(
+                                                song?.artists?.length ?? 0,
+                                                (index) => InputChip(
+                                                      onPressed: () async {
+                                                        Artist artist = await NCS
+                                                            .getArtistInfo(
+                                                                artist:
+                                                                    song?.artists?[
+                                                                        index]);
+                                                        showDialog(
+                                                          context: context,
+                                                          builder: (context) =>
+                                                              Material(
+                                                            child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                children: [
+                                                                  Image.network(
+                                                                      artist.img ??
+                                                                          ''),
+                                                                  Text(artist
+                                                                          .name ??
+                                                                      ''),
+                                                                  const Divider(
+                                                                      thickness:
+                                                                          2),
+                                                                  Text(artist
+                                                                          .url ??
+                                                                      ''),
+                                                                  const Divider(
+                                                                      thickness:
+                                                                          2),
+                                                                  ...List.generate(
+                                                                      artist.genres
+                                                                              ?.length ??
+                                                                          0,
+                                                                      (index) =>
+                                                                          ListTile(
+                                                                              title: Text(artist.genres?[index] ?? ''))),
+                                                                ]),
+                                                          ),
+                                                        );
+                                                      },
+                                                      label: Text(
+                                                          '${song?.artists?[index].name} - ${song?.artists?[index].url}'),
+                                                    )),
+                                          ),
+                                          if (song?.tags != null)
+                                            const Text('Tags'),
+                                          Wrap(
+                                            children: List.generate(
+                                                song?.tags?.length ?? 0,
+                                                (index) => Chip(
+                                                      label: Text(
+                                                          '${song?.tags?[index].name}'),
+                                                    )),
+                                          ),
+                                          Wrap(
+                                            children: List.generate(
+                                                song?.tags?.length ?? 0,
+                                                (index) => song?.tags?[index]
+                                                            .genre !=
+                                                        null
+                                                    ? Chip(
+                                                        label: Text(song
+                                                                ?.tags?[index]
+                                                                .genre
+                                                                ?.genre() ??
+                                                            ''),
+                                                      )
+                                                    : const SizedBox.shrink()),
+                                          ),
+                                          Wrap(
+                                            children: List.generate(
+                                                song?.tags?.length ?? 0,
+                                                (index) => song?.tags?[index]
+                                                            .mood !=
+                                                        null
+                                                    ? Chip(
+                                                        label: Text(song
+                                                                ?.tags?[index]
+                                                                .mood
+                                                                ?.mood() ??
+                                                            ''),
+                                                      )
+                                                    : const SizedBox.shrink()),
+                                          )
+                                        ]),
                                   ),
                                 )));
                       },
-                      leading: CircleAvatar(backgroundImage: NetworkImage(song?.imageUrl ?? '')),
+                      leading: CircleAvatar(
+                          backgroundImage: NetworkImage(song?.imageUrl ?? '')),
                       title: Text(song?.name ?? ''));
                 },
               );
@@ -119,7 +167,8 @@ class _HomeState extends State<Home> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SearchPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SearchPage()));
               },
               icon: const Icon(Icons.search))
         ],
@@ -129,7 +178,8 @@ class _HomeState extends State<Home> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200),
               shrinkWrap: true,
               itemCount: snapshot.data?.length ?? 0,
               itemBuilder: (context, index) {
@@ -196,7 +246,9 @@ class _SearchPageState extends State<SearchPage> {
                     });
                     songs.clear();
                     setState(() => isSearching = true);
-                    songs.addAll(await NCS.searchMusic(search: searchController.text.trim()) ?? []);
+                    songs.addAll(await NCS.searchMusic(
+                            search: searchController.text.trim()) ??
+                        []);
                     setState(() {
                       isDataFetched = true;
                       isSearching = false;
@@ -209,16 +261,16 @@ class _SearchPageState extends State<SearchPage> {
             Visibility(
                 visible: !isDataFetched & !isSearching,
                 child: const Center(
-                  child:  Text('Search results appear here'),
+                  child: Text('Search results appear here'),
                 )),
             Visibility(
                 visible: !isDataFetched & isSearching,
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children:const [
-                       CupertinoActivityIndicator(color: Colors.deepPurple),
-                       Text('Searching...'),
+                    children: const [
+                      CupertinoActivityIndicator(color: Colors.deepPurple),
+                      Text('Searching...'),
                     ],
                   ),
                 )),
@@ -231,47 +283,80 @@ class _SearchPageState extends State<SearchPage> {
                     Song song = songs[index];
                     return InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => PlayerScreen(song: song)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    PlayerScreen(song: song)));
                       },
                       child: Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.grey.shade200),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.grey.shade200),
                         padding: const EdgeInsets.all(10),
                         child: Row(
                           children: [
-                            ClipRRect(borderRadius: BorderRadius.circular(15), child: Image.network(song.imageUrl ?? '', width: 60, height: 60)),
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: Image.network(song.imageUrl ?? '',
+                                    width: 60, height: 60)),
                             const SizedBox(width: 10),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(song.name ?? '', style: Theme.of(context).textTheme.bodyText1),
+                                  Text(song.name ?? '',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1),
                                   Wrap(
                                     children: [
-                                      Icon(Icons.person, color: Colors.deepPurple.shade400),
+                                      Icon(Icons.person,
+                                          color: Colors.deepPurple.shade400),
                                       ...List.generate(
                                           song.artists?.length ?? 0,
                                           (index) => Container(
-                                                decoration: BoxDecoration(color: Colors.deepPurple.shade50, borderRadius: BorderRadius.circular(10)),
-                                                padding: const EdgeInsets.all(3),
-                                                margin: const EdgeInsets.only(right: 3),
-                                                child: Text(song.artists?[index].name ?? ''),
+                                                decoration: BoxDecoration(
+                                                    color: Colors
+                                                        .deepPurple.shade50,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                padding:
+                                                    const EdgeInsets.all(3),
+                                                margin: const EdgeInsets.only(
+                                                    right: 3),
+                                                child: Text(
+                                                    song.artists?[index].name ??
+                                                        ''),
                                               ))
                                     ],
                                   ),
                                   Wrap(
                                     children: [
-                                      Icon(Icons.tag, color: Colors.green.shade400),
+                                      Icon(Icons.tag,
+                                          color: Colors.green.shade400),
                                       ...List.generate(
                                           song.tags?.length ?? 0,
                                           (index) => Container(
-                                                decoration: BoxDecoration(color: Colors.green.shade50, borderRadius: BorderRadius.circular(10)),
-                                                padding: const EdgeInsets.all(3),
-                                                margin: const EdgeInsets.only(right: 3),
-                                                child: Text(song.tags?[index].name ?? ''),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.green.shade50,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                padding:
+                                                    const EdgeInsets.all(3),
+                                                margin: const EdgeInsets.only(
+                                                    right: 3),
+                                                child: Text(
+                                                    song.tags?[index].name ??
+                                                        ''),
                                               ))
                                     ],
                                   ),
-                                  Text(song.genre ?? '', style: const TextStyle(color: Colors.grey))
+                                  Text(song.genre ?? '',
+                                      style:
+                                          const TextStyle(color: Colors.grey))
                                 ],
                               ),
                             ),
@@ -280,7 +365,8 @@ class _SearchPageState extends State<SearchPage> {
                       ),
                     );
                   },
-                  separatorBuilder: (context, index) => const Divider(height: 10, color: Colors.transparent),
+                  separatorBuilder: (context, index) =>
+                      const Divider(height: 10, color: Colors.transparent),
                 )),
           ],
         ),

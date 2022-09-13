@@ -20,5 +20,4 @@ class Song {
     this.songUrl,
     this.tags,
   });
-
 }

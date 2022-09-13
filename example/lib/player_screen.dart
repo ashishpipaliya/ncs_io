@@ -25,7 +25,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [IconButton(onPressed: playAudio, icon: const Icon(Icons.play_arrow))]),
+      appBar: AppBar(actions: [
+        IconButton(onPressed: playAudio, icon: const Icon(Icons.play_arrow))
+      ]),
       body: Text(widget.song.songUrl ?? ''),
     );
   }

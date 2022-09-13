@@ -1,10 +1,10 @@
 name: ncs_io
-description: NoCopyrightSound API for flutter.
+description: Unofficial NoCopyrightSound client for flutter to play/download copyright free songs.
 version: 0.0.1
 homepage: https://github.com/ashishpipaliya/ncs_io
 
 environment:
-  sdk: ">=2.15.6 <3.0.0"
+  sdk: ">=2.14.4 <3.0.0"
   flutter: ">=2.5.0"
 
 dependencies:
@@ -14,7 +14,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

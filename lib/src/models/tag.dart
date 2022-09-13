@@ -12,6 +12,4 @@ class Tag {
     this.genre,
     this.color,
   });
-
 }
-

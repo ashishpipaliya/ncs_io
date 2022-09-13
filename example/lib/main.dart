@@ -14,10 +14,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent, statusBarIconBrightness: Brightness.dark));
-    return  MaterialApp(home: const Home(), theme: ThemeData(useMaterial3: true, primarySwatch: Colors.deepPurple));
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark));
+    return MaterialApp(
+        home: const Home(),
+        theme: ThemeData(useMaterial3: true, primarySwatch: Colors.deepPurple));
   }
 }

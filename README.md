@@ -1,10 +1,9 @@
 <div align="center">
 <img src="https://user-images.githubusercontent.com/32923529/189926569-f8206a96-d050-485d-bfed-577a36f6a8bc.png" width="120"/>
 <br>
-<br>
 <h2>NoCopyrightSound
 </h2>
-<p>Unofficial NCS client for flutter</p>
+<p>Unofficial NoCopyrightSound client for flutter to play/download copyright free songs</p>
 
 ![GitHub](https://img.shields.io/github/license/ashishpipaliya/ncs_io?style=for-the-badge)
 </div>

@@ -8,5 +8,4 @@ class NCColor {
     this.g,
     this.b,
   });
-
 }
