@@ -4,7 +4,7 @@ import 'package:ncs_io/src/models/song.dart';
 import 'package:ncs_io/util/just_parser.dart';
 
 class NCS {
-  static Future<List<Song>>? getMusic({int page = 1}) async {
+  static Future<List<Song>> getMusic({int page = 1}) async {
     String url = "https://ncs.io/music?page=$page";
     var document = await Chaleno().load(url);
     var songsElement = document?.querySelectorAll('div.col-lg-2.item');
@@ -12,7 +12,7 @@ class NCS {
     return songs;
   }
 
-  static Future<List<Song>>? searchMusic(
+  static Future<List<Song>> searchMusic(
       {int page = 1,
       int? genreType,
       int? mood,

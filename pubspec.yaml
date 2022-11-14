@@ -1,6 +1,6 @@
 name: ncs_io
 description: Unofficial NoCopyrightSound client for flutter to play/download copyright free songs.
-version: 0.0.2
+version: 0.0.4
 homepage: https://github.com/ashishpipaliya/ncs_io
 
 environment:

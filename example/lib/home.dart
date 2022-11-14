@@ -100,8 +100,7 @@ class _SearchPageState extends State<SearchPage> {
                     songs.clear();
                     setState(() => isSearching = true);
                     songs.addAll(await NCS.searchMusic(
-                            search: searchController.text.trim()) ??
-                        []);
+                        search: searchController.text.trim()));
                     setState(() {
                       isDataFetched = true;
                       isSearching = false;
